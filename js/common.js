@@ -1,103 +1,56 @@
-$(document).ready(function () {
-    
-    //nav
-    var oH2 = document.getElementById("mnavh");
-    var oUl = document.getElementById("starlist");
-    oH2.onclick = function () {
-        var style = oUl.style;
-        style.display = style.display == "block" ? "none" : "block";
-        oH2.className = style.display == "block" ? "open" : ""
-    }
-    
-    var obj = null;
-    var As = document.getElementById('starlist').getElementsByTagName('a');
-    obj = As[0];
-    for (i = 1; i < As.length; i++) {
-        if (window.location.href.indexOf(As[i].href) >= 0)
-            obj = As[i];
-    }
-    obj.id = 'selected';
-    
-    //search
-    $('.search_ico').click(function () {
-        $('.search_bar').toggleClass('search_open');
-        if ($('#keyboard').val().length > 2) {
-            $('#keyboard').val('');
-            $('#searchform').submit();
-        } else {
-            return false;
+window.$claudia = {
+    throttle: function (func, time) {
+        var wait = false
+        return function () {
+            if (wait) return
+            wait = true
+
+            setTimeout(function () {
+                func()
+                wait = false
+            }, time || 100)
         }
-    });
-    
-    var new_scroll_position = 0;
-    var last_scroll_position;
-    var header = document.getElementById("header");
-    
-    window.addEventListener('scroll', function (e) {
-        last_scroll_position = window.scrollY;
-        
-        if (new_scroll_position < last_scroll_position && last_scroll_position > 80) {
-            header.classList.remove("slideDown");
-            header.classList.add("slideUp");
-            
-        } else if (new_scroll_position > last_scroll_position) {
-            header.classList.remove("slideUp");
-            header.classList.add("slideDown");
-        }
-        
-        new_scroll_position = last_scroll_position;
-    });
-    
-    //scroll to top
-    var offset = 300,
-        offset_opacity = 1200,
-        scroll_top_duration = 700,
-        $back_to_top = $('.cd-top');
-    
-    $(window).scroll(function () {
-        ($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
-        if ($(this).scrollTop() > offset_opacity) {
-            $back_to_top.addClass('cd-fade-out');
-        }
-    });
-    $back_to_top.on('click', function (event) {
-        event.preventDefault();
-        $('body,html').animate({
-                scrollTop: 0,
-            }, scroll_top_duration
-        );
-    });
-    
-    //aside
-    var Sticky = new hcSticky('aside', {
-        stickTo: 'article',
-        innerTop: 200,
-        followScroll: false,
-        queries: {
-            480: {
-                disable: true,
-                stickTo: 'body'
+    },
+    fadeInImage: function(imgs, imageLoadedCallback) {
+        var images = imgs || document.querySelectorAll('.js-img-fadeIn')
+
+        function loaded(event) {
+            var image = event.currentTarget
+            image.style.transition = 'opacity 320ms'
+            image.style.opacity = 1
+
+            if (image.parentElement && image.parentElement.classList.contains('skeleton')) {
+                image.parentElement.classList.remove('skeleton')
             }
+            imageLoadedCallback && imageLoadedCallback(image)
         }
-    });
-    
-    //scroll
-    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
-        window.scrollReveal = ScrollReveal({reset: true});
-    }
-    var data = [];
-    $.ajax({
-        url: "/search.json",
-        dataType: "json"
-    }).then(function (resp) {
-        data = resp;
-    });
-    $("#keyboard").bind("input", function () {
-        var val = $(this).val();
-        data.forEach(r => {
-            if ($.inArray(val, r.word) > -1) {
-                console.log(r.title);
+
+        images.forEach(function (img) {
+            if (img.complete) {
+                return loaded({ currentTarget: img })
             }
+
+            img.addEventListener('load', loaded)
         })
-    });
-})
+    },
+    blurBackdropImg: function(image) {
+        if (!image.dataset.backdrop) return
+
+        var parent = image.parentElement //TODO: Not finish yes, must be a pure function
+        var parentWidth = Math.round(parent.getBoundingClientRect().width)
+        var childImgWidth = Math.round(image.getBoundingClientRect().width)
+
+        var isCovered = parentWidth === childImgWidth
+        var blurImg = parent.previousElementSibling //TODO: Not finish yes, must be a pure function
+
+        isCovered ? blurImg.classList.add('is-hidden') : blurImg.classList.remove('is-hidden')
+    },
+    getSystemTheme(callback) {
+        var media = window.matchMedia('(prefers-color-scheme: dark)')
+        media.addEventListener('change', function (e){
+            callback && callback(e.matches ? "dark" : "light")
+        })
+
+        callback && callback(media.matches ? 'dark' : 'light')
+    }
+}

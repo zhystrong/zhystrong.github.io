@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-25T10:52:36.691Z</updated>
+  <updated>2021-03-26T12:10:06.562Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,50 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/03/25/hello-world/"/>
-    <id>http://example.com/2021/03/25/hello-world/</id>
-    <published>2021-03-25T10:52:36.691Z</published>
-    <updated>2021-03-25T10:52:36.691Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>keil流水设计</title>
-    <link href="http://example.com/2021/03/08/Keil%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://example.com/2021/03/08/Keil%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E8%AE%BE%E8%AE%A1/</id>
-    <published>2021-03-08T07:46:00.000Z</published>
-    <updated>2021-03-26T12:10:13.842Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="在点亮流水灯的同时，我们要对移位操作进行了解"><a href="#在点亮流水灯的同时，我们要对移位操作进行了解" class="headerlink" title="在点亮流水灯的同时，我们要对移位操作进行了解"></a>在点亮流水灯的同时，我们要对移位操作进行了解</h2><h3 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h3><p>在C51中操作符“&lt;&lt;”，每执行一次左移指令，会将最高位移入单片机寄存器的CY位(CY是进位标志)，CY会丢弃原来的数据，并且在最低为补0；其他位依次向左移动一位，如图所示：<br><img src="https://img-blog.csdnimg.cn/2021030109533687.png" alt="左移示意图"></p><h3 id="右移"><a href="#右移" class="headerlink" title="右移"></a>右移</h3><p>在C51中操作符“&gt;&gt;”，每执行一次左移指令，会将最低位移入单片机寄存器的CY位，CY会丢弃原来的数据，并且在最高为补0；其他位依次向右移动一位，如图所示：<br><img src="https://img-blog.csdnimg.cn/20210301095947958.png" alt="右移示意图"></p><h3 id="循环左移"><a href="#循环左移" class="headerlink" title="循环左移"></a>循环左移</h3><p>最高位移入最低位，其他位次向左移一位</p><p><img src="https://img-blog.csdnimg.cn/20210301101307433.png" alt="循环左移"></p><h2 id="循环右移"><a href="#循环右移" class="headerlink" title="循环右移"></a>循环右移</h2><p>最低位移入最高位，其他位次向右移一位<br><img src="https://img-blog.csdnimg.cn/20210301101652993.png" alt="循环右移"><br>下面让我们实践一下</p><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;REG51F.H&gt;//以51为例</span><br><span class="line">#include &lt;intrins.H&gt;   //引入_crol_</span><br><span class="line">void Delay100ms(unsigned char cnt);</span><br><span class="line">void main(){</span><br><span class="line">P1 = 0xfe;//赋值 11111110</span><br><span class="line">while (1){</span><br><span class="line">Delay100ms(20);</span><br><span class="line">P1 = _crol_(P1,1);</span><br><span class="line">}</span><br><span class="line">}</span><br><span class="line">void Delay100ms(unsigned char cnt)//@12.000MHz</span><br><span class="line">{</span><br><span class="line">unsigned char i, j;</span><br><span class="line">while(cnt--){</span><br><span class="line">i = 195;</span><br><span class="line">j = 138;</span><br><span class="line">do</span><br><span class="line">{</span><br><span class="line">while (--j);</span><br><span class="line">} while (--i);</span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>[video(video-JMyWTGnU-1614567549404)(type-bilibili)(url-<a href="https://player.bilibili.com/player.html?aid=971977070)(image-https://ss.csdn.net/p?http://i1.hdslb.com/bfs/archive/5ea7654c5fdd4c5d2c679a5e39a5c520f6498876.jpg)(title-Keil%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E8%AE%BE%E8%AE%A1)%5D">https://player.bilibili.com/player.html?aid=971977070)(image-https://ss.csdn.net/p?http://i1.hdslb.com/bfs/archive/5ea7654c5fdd4c5d2c679a5e39a5c520f6498876.jpg)(title-Keil软件使用及流水灯设计)]</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;在点亮流水灯的同时，我们要对移位操作进行了解&quot;&gt;&lt;a href=&quot;#在点亮流水灯的同时，我们要对移位操作进行了解&quot; class=&quot;headerlink&quot; title=&quot;在点亮流水灯的同时，我们要对移位操作进行了解&quot;&gt;&lt;/a&gt;在点亮流水灯的同时，我们要对移位操作进行</summary>
-      
-    
-    
-    
-    <category term="单片机 蓝桥杯" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-    
-    <category term="单片机 蓝桥杯" scheme="http://example.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-  </entry>
   
   <entry>
     <title>点亮静态数码管</title>
@@ -97,6 +53,30 @@
       
       
     <summary type="html">&lt;h1 id=&quot;独立按键的基本操作&quot;&gt;&lt;a href=&quot;#独立按键的基本操作&quot; class=&quot;headerlink&quot; title=&quot;独立按键的基本操作&quot;&gt;&lt;/a&gt;独立按键的基本操作&lt;/h1&gt;&lt;h2 id=&quot;消抖&quot;&gt;&lt;a href=&quot;#消抖&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    <category term="单片机 蓝桥杯" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+    
+    <category term="单片机 蓝桥杯" scheme="http://example.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>keil流水设计</title>
+    <link href="http://example.com/2021/03/08/Keil%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://example.com/2021/03/08/Keil%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E8%AE%BE%E8%AE%A1/</id>
+    <published>2021-03-08T07:46:00.000Z</published>
+    <updated>2021-03-26T12:10:13.842Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在点亮流水灯的同时，我们要对移位操作进行了解"><a href="#在点亮流水灯的同时，我们要对移位操作进行了解" class="headerlink" title="在点亮流水灯的同时，我们要对移位操作进行了解"></a>在点亮流水灯的同时，我们要对移位操作进行了解</h2><h3 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h3><p>在C51中操作符“&lt;&lt;”，每执行一次左移指令，会将最高位移入单片机寄存器的CY位(CY是进位标志)，CY会丢弃原来的数据，并且在最低为补0；其他位依次向左移动一位，如图所示：<br><img src="https://img-blog.csdnimg.cn/2021030109533687.png" alt="左移示意图"></p><h3 id="右移"><a href="#右移" class="headerlink" title="右移"></a>右移</h3><p>在C51中操作符“&gt;&gt;”，每执行一次左移指令，会将最低位移入单片机寄存器的CY位，CY会丢弃原来的数据，并且在最高为补0；其他位依次向右移动一位，如图所示：<br><img src="https://img-blog.csdnimg.cn/20210301095947958.png" alt="右移示意图"></p><h3 id="循环左移"><a href="#循环左移" class="headerlink" title="循环左移"></a>循环左移</h3><p>最高位移入最低位，其他位次向左移一位</p><p><img src="https://img-blog.csdnimg.cn/20210301101307433.png" alt="循环左移"></p><h2 id="循环右移"><a href="#循环右移" class="headerlink" title="循环右移"></a>循环右移</h2><p>最低位移入最高位，其他位次向右移一位<br><img src="https://img-blog.csdnimg.cn/20210301101652993.png" alt="循环右移"><br>下面让我们实践一下</p><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;REG51F.H&gt;//以51为例</span><br><span class="line">#include &lt;intrins.H&gt;   //引入_crol_</span><br><span class="line">void Delay100ms(unsigned char cnt);</span><br><span class="line">void main(){</span><br><span class="line">P1 = 0xfe;//赋值 11111110</span><br><span class="line">while (1){</span><br><span class="line">Delay100ms(20);</span><br><span class="line">P1 = _crol_(P1,1);</span><br><span class="line">}</span><br><span class="line">}</span><br><span class="line">void Delay100ms(unsigned char cnt)//@12.000MHz</span><br><span class="line">{</span><br><span class="line">unsigned char i, j;</span><br><span class="line">while(cnt--){</span><br><span class="line">i = 195;</span><br><span class="line">j = 138;</span><br><span class="line">do</span><br><span class="line">{</span><br><span class="line">while (--j);</span><br><span class="line">} while (--i);</span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>[video(video-JMyWTGnU-1614567549404)(type-bilibili)(url-<a href="https://player.bilibili.com/player.html?aid=971977070)(image-https://ss.csdn.net/p?http://i1.hdslb.com/bfs/archive/5ea7654c5fdd4c5d2c679a5e39a5c520f6498876.jpg)(title-Keil%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E8%AE%BE%E8%AE%A1)%5D">https://player.bilibili.com/player.html?aid=971977070)(image-https://ss.csdn.net/p?http://i1.hdslb.com/bfs/archive/5ea7654c5fdd4c5d2c679a5e39a5c520f6498876.jpg)(title-Keil软件使用及流水灯设计)]</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;在点亮流水灯的同时，我们要对移位操作进行了解&quot;&gt;&lt;a href=&quot;#在点亮流水灯的同时，我们要对移位操作进行了解&quot; class=&quot;headerlink&quot; title=&quot;在点亮流水灯的同时，我们要对移位操作进行了解&quot;&gt;&lt;/a&gt;在点亮流水灯的同时，我们要对移位操作进行</summary>
       
     
     

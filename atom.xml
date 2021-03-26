@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-26T12:58:35.876Z</updated>
+  <updated>2021-03-26T12:53:20.445Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>独立按键</title>
-    <link href="http://example.com/2021/03/08/%E7%8B%AC%E7%AB%8B%E6%8C%89%E9%94%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
-    <id>http://example.com/2021/03/08/%E7%8B%AC%E7%AB%8B%E6%8C%89%E9%94%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
-    <published>2021-03-08T07:46:00.000Z</published>
-    <updated>2021-03-26T12:58:35.876Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="独立按键的基本操作"><a href="#独立按键的基本操作" class="headerlink" title="独立按键的基本操作"></a>独立按键的基本操作</h1><h2 id="消抖"><a href="#消抖" class="headerlink" title="消抖"></a>消抖</h2><p><img src="https://img-blog.csdnimg.cn/20210312112341730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Mjc1NDY5OQ==,size_16,color_FFFFFF,t_70" alt="按键与单片机的连接示意图"><br><img src="https://img-blog.csdnimg.cn/20210312112423700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Mjc1NDY5OQ==,size_16,color_FFFFFF,t_70" alt="按键抖动电压"><br><img src="https://img-blog.csdnimg.cn/20210312112554742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Mjc1NDY5OQ==,size_16,color_FFFFFF,t_70" alt="按键流程示意图"></p><hr><pre><code class="c">#include &lt;STC89C5xRC.H&gt;#include &lt;intrins.h&gt;sbit s7 = P3^0;sbit s6 = P3^1;sbit s5 = P3^2;sbit s4 = P3^3;unsigned char code SMG_NoDot[18] ={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,0x88,0x80,0xc6,0xc0,0x86,0x8e,0xbf,0x7f};void InitHC573(unsigned char i);void show(unsigned char j);void Delay100ms();void scanfkey();void main(){scanfkey();}void Delay100ms() //@11.0592MHz{unsigned char i, j;i = 180;j = 73;do{    while (--j);} while (--i);}void InitHC573(unsigned char i){switch (i){case 6:P2 = ( P2 &amp; 0x1f ) | 0xc0;break;case 7:P2 = ( P2 &amp; 0x1f ) | 0xe0;break;}}void show(unsigned char j){InitHC573(6);P0 = 0x01;InitHC573(7);P0 = j;}void scanfkey(){if(s7 == 0){Delay100ms();if(s7 == 0){while(s7 == 0);show(SMG_NoDot[0]);}}if(s6 == 0){Delay100ms();if(s6 == 0){while(s6 == 0);show(SMG_NoDot[1]);}}if(s5 == 0){Delay100ms();if(s5 == 0){while(s5 == 0);show(SMG_NoDot[2]);}}if(s4 == 0){Delay100ms();if(s4 == 0){while(s4 == 0);show(SMG_NoDot[3]);}}}</code></pre><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;独立按键的基本操作&quot;&gt;&lt;a href=&quot;#独立按键的基本操作&quot; class=&quot;headerlink&quot; title=&quot;独立按键的基本操作&quot;&gt;&lt;/a&gt;独立按键的基本操作&lt;/h1&gt;&lt;h2 id=&quot;消抖&quot;&gt;&lt;a href=&quot;#消抖&quot; class=&quot;headerlink&quot; </summary>
-      
-    
-    
-    
-    <category term="单片机 蓝桥杯" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-    
-    <category term="单片机 蓝桥杯" scheme="http://example.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-  </entry>
   
   <entry>
     <title>点亮静态数码管</title>
@@ -77,6 +53,30 @@
       
       
     <summary type="html">&lt;h2 id=&quot;在点亮流水灯的同时，我们要对移位操作进行了解&quot;&gt;&lt;a href=&quot;#在点亮流水灯的同时，我们要对移位操作进行了解&quot; class=&quot;headerlink&quot; title=&quot;在点亮流水灯的同时，我们要对移位操作进行了解&quot;&gt;&lt;/a&gt;在点亮流水灯的同时，我们要对移位操作进行</summary>
+      
+    
+    
+    
+    <category term="单片机 蓝桥杯" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+    
+    <category term="单片机 蓝桥杯" scheme="http://example.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA-%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>独立按键</title>
+    <link href="http://example.com/2021/03/08/%E7%8B%AC%E7%AB%8B%E6%8C%89%E9%94%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>http://example.com/2021/03/08/%E7%8B%AC%E7%AB%8B%E6%8C%89%E9%94%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <published>2021-03-08T07:46:00.000Z</published>
+    <updated>2021-03-26T12:58:35.876Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="独立按键的基本操作"><a href="#独立按键的基本操作" class="headerlink" title="独立按键的基本操作"></a>独立按键的基本操作</h1><h2 id="消抖"><a href="#消抖" class="headerlink" title="消抖"></a>消抖</h2><p><img src="https://img-blog.csdnimg.cn/20210312112341730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Mjc1NDY5OQ==,size_16,color_FFFFFF,t_70" alt="按键与单片机的连接示意图"><br><img src="https://img-blog.csdnimg.cn/20210312112423700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Mjc1NDY5OQ==,size_16,color_FFFFFF,t_70" alt="按键抖动电压"><br><img src="https://img-blog.csdnimg.cn/20210312112554742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Mjc1NDY5OQ==,size_16,color_FFFFFF,t_70" alt="按键流程示意图"></p><hr><pre><code class="c">#include &lt;STC89C5xRC.H&gt;#include &lt;intrins.h&gt;sbit s7 = P3^0;sbit s6 = P3^1;sbit s5 = P3^2;sbit s4 = P3^3;unsigned char code SMG_NoDot[18] ={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,0x88,0x80,0xc6,0xc0,0x86,0x8e,0xbf,0x7f};void InitHC573(unsigned char i);void show(unsigned char j);void Delay100ms();void scanfkey();void main(){scanfkey();}void Delay100ms() //@11.0592MHz{unsigned char i, j;i = 180;j = 73;do{    while (--j);} while (--i);}void InitHC573(unsigned char i){switch (i){case 6:P2 = ( P2 &amp; 0x1f ) | 0xc0;break;case 7:P2 = ( P2 &amp; 0x1f ) | 0xe0;break;}}void show(unsigned char j){InitHC573(6);P0 = 0x01;InitHC573(7);P0 = j;}void scanfkey(){if(s7 == 0){Delay100ms();if(s7 == 0){while(s7 == 0);show(SMG_NoDot[0]);}}if(s6 == 0){Delay100ms();if(s6 == 0){while(s6 == 0);show(SMG_NoDot[1]);}}if(s5 == 0){Delay100ms();if(s5 == 0){while(s5 == 0);show(SMG_NoDot[2]);}}if(s4 == 0){Delay100ms();if(s4 == 0){while(s4 == 0);show(SMG_NoDot[3]);}}}</code></pre><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;独立按键的基本操作&quot;&gt;&lt;a href=&quot;#独立按键的基本操作&quot; class=&quot;headerlink&quot; title=&quot;独立按键的基本操作&quot;&gt;&lt;/a&gt;独立按键的基本操作&lt;/h1&gt;&lt;h2 id=&quot;消抖&quot;&gt;&lt;a href=&quot;#消抖&quot; class=&quot;headerlink&quot; </summary>
       
     
     
